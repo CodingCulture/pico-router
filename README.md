@@ -8,13 +8,13 @@ that has a defineRoutes method and a getDefaultRoute method, inject it into your
 listener.
 
 ### Howto Use
+Step by step on how to implement pico-router into your project.
 
 #### Extend the base Router
 
 Extend the Base Router like you would do with any ES6 class.
 
 ```
-
 
 import Router from './Router/router.react.js';
 
@@ -24,7 +24,6 @@ class GrandRouter extends Router
 }
 
 export default GrandRouter;
-
 
 
 ````
@@ -45,8 +44,6 @@ method to specify which variable the view needs.
 Remember to only apply changes to the this.routes parameter.
 
 ```
-
-
 import Router from './Router/router.react.js';
 
 class GrandRouter extends Router
@@ -60,9 +57,6 @@ class GrandRouter extends Router
 }
 
 export default GrandRouter;
-
-
-
 ````
 
 #### getDefaultRoute method
@@ -71,8 +65,6 @@ The getDefaultRoute method you need to implement will just need to return the de
 You can use the Router's this.getRoute() method with a route as parameter to make this pain free.
 
 ```
-
-
 import Router from './Router/router.react.js';
 
 class GrandRouter extends Router
@@ -91,9 +83,6 @@ class GrandRouter extends Router
 }
 
 export default GrandRouter;
-
-
-
 ````
 
 #### Inject into your Main
@@ -109,10 +98,8 @@ As a last step, you will need to listen to changes to the url. Use the following
 implement something without jQuery
 
 ```
-
-        $(window).bind('hashchange', function() {
-            this.router.navigate();
-        }.bind(this));
-
+    $(window).bind('hashchange', function() {
+        this.router.navigate();
+    }.bind(this));
 ```
 
