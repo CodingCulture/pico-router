@@ -15,7 +15,6 @@ Step by step on how to implement pico-router into your project.
 Extend the Base Router like you would do with any ES6 class.
 
 ```
-
 import Router from './Router/router.react.js';
 
 class GrandRouter extends Router
@@ -24,8 +23,6 @@ class GrandRouter extends Router
 }
 
 export default GrandRouter;
-
-
 ````
 
 
@@ -98,8 +95,8 @@ As a last step, you will need to listen to changes to the url. Use the following
 implement something without jQuery
 
 ```
-    $(window).bind('hashchange', function() {
-        this.router.navigate();
-    }.bind(this));
+$(window).bind('hashchange', function() {
+    this.router.navigate();
+}.bind(this));
 ```
 
