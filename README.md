@@ -8,6 +8,7 @@ that has a defineRoutes method and a getDefaultRoute method, inject it into your
 listener.
 
 ### Howto Use
+Step by step on how to implement pico-router into your project.
 
 #### Extend the base Router
 
@@ -53,12 +54,14 @@ class GrandRouter extends Router
 }
 
 export default GrandRouter;
+<<<<<<< HEAD
 ```
 
 #### getDefaultRoute method
 
 The getDefaultRoute method you need to implement will just need to return the default React Component that will be used.
 You can use the Router's this.getRoute() method with a route as parameter to make this pain free.
+
 
 ``` 
 import Router from './Router/router.react.js';
@@ -80,6 +83,7 @@ class GrandRouter extends Router
 
 export default GrandRouter;
 ```
+
 
 #### Inject into your Main
 
