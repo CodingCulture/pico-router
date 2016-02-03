@@ -1,0 +1,27 @@
+{
+  "name": "react-pico-router",
+  "version": "1.0.0",
+  "description": "A supersmall router for react",
+  "main": "src/router.react.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodingCulture/pico-router.git"
+  },
+  "keywords": [
+    "react",
+    "router",
+    "react-router"
+  ],
+  "author": "Niels Vermaut <nielsvermaut@gmail.com> (https://nielsvermaut.eu)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CodingCulture/pico-router/issues"
+  },
+  "homepage": "https://github.com/CodingCulture/pico-router#readme"
+}
