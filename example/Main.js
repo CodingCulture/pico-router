@@ -19,12 +19,6 @@ class Main extends React.Component
     {
         super(props);
         this.router = router;
-
-        //Use jQuery or an event listener to bind
-        $(window).bind('hashchange', function() {
-            this.router.navigate();
-        }.bind(this));
-
     }
 
     //Render the target
@@ -33,6 +27,10 @@ class Main extends React.Component
         return (<div id="target-pages"></div>);
     }
 }
+//Use jQuery or an event listener to bind
+$(window).bind('hashchange', function() {
+    console.log(router.navigate())
+});
 
 //Call the router the first time to go to the application's first view.
-ReactDOM.render(router.getDefaultRoute(), document.getElementById('application'));
+router.boot();
