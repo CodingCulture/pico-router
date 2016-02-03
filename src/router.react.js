@@ -2,13 +2,11 @@ import ReactDOM from 'react-dom';
 
 /**
  * React Router, done slim
- *
- * @author Niels Vermaut <nielsvermaut@gmail.com>
  */
 class Router
 {
     /**
-     * Router constructor.
+     * Binds the event that listens for URL changes
      */
     constructor()
     {
@@ -17,11 +15,8 @@ class Router
     }
 
     /**
-     * Returns the default route for the application.
-     * This function is abstract and needs an override in order to work.
-     *
-     * @returns {boolean}
-     * @throw TypeError
+     * Defines the default route
+     * @returns {*}
      */
     getDefaultRoute()
     {
@@ -29,8 +24,7 @@ class Router
     }
 
     /**
-     * Stores all the routes.
-     * This method is abstract and needs an override in order to work.
+     * Keeps an array of all available routes
      */
     defineRoutes()
     {
@@ -38,10 +32,9 @@ class Router
     }
 
     /**
-     * Returns the ReactComponent linked to the route.
-     *
+     * Returns the route for a given url
      * @param name
-     * @returns {ReactComponent}
+     * @returns {*}
      */
     getRoute(name)
     {
@@ -50,7 +43,6 @@ class Router
 
     /**
      * Returns the url the user has requested
-     *
      * @returns {string}
      */
     getRequestedRoute()
@@ -60,18 +52,16 @@ class Router
 
     /**
      * Returns if the user wants to access the default route
-     *
      * @returns {boolean}
      */
     isDefaultRoute()
     {
-        return this.getRequestedRoute() == 0;
+        return this.getRequestedRoute() == 0 ? true : false;
     }
 
     /**
-     * Returns the query params.
-     *
-     * @returns {Array}
+     * Gets the query params
+     * @param name
      */
     getQueryParams()
     {
@@ -88,19 +78,7 @@ class Router
     }
 
     /**
-     * Returns one query param with a certain name
-     *
-     * @param name
-     * @returns {*|undefined}
-     */
-    getQueryParam(name)
-    {
-        return this.getQueryParams()[name];
-    }
-
-    /**
-     * Returns the raw query string.
-     *
+     * Returns the query string after #
      * @returns {string}
      */
     getQueryString()
@@ -110,12 +88,12 @@ class Router
     }
 
     /**
-     * Navigates to the requested ReactComponent.
-     *
+     * Navigates to the requested url
      * @returns {*}
      */
     navigate()
     {
+        console.log('Navigate trigger');
         var target = this.getRoute(this.getRequestedRoute());
 
         if (this.isDefaultRoute()) {
@@ -128,8 +106,23 @@ class Router
 
         ReactDOM.render(
             target,
-            document.getElementById('target-pages')
+            document.getElementById('application')
         );
+    }
+
+    /**
+     * Initiates the router
+     * @param {string} domId
+     */
+    boot(domId)
+    {
+        var redirect = this.getDefaultRoute();
+
+        if (this.getRequestedRoute().length > 0) {
+            redirect = this.getRoute(this.getRequestedRoute());
+        }
+
+        ReactDOM.render(redirect, document.getElementById(domId));
     }
 }
 
