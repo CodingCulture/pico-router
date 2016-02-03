@@ -97,8 +97,8 @@ As a last step, you will need to listen to changes to the url. Use the following
 implement something without jQuery
 
 ```
-$(window).bind('hashchange', function() {
-    this.router.navigate();
-}.bind(this));
+window.addEventListener('hashchange', function() {
+    router.navigate()
+});
 ```
 
