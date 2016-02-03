@@ -54,7 +54,6 @@ class GrandRouter extends Router
 }
 
 export default GrandRouter;
-<<<<<<< HEAD
 ```
 
 #### getDefaultRoute method
