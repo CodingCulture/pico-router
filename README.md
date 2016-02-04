@@ -15,7 +15,7 @@ Step by step on how to implement pico-router into your project.
 Extend the Base Router like you would do with any ES6 class.
 
 ```
-import Router from './Router/router.react.js';
+import Router from 'react-pico-router';
 
 class GrandRouter extends Router
 {
@@ -41,7 +41,7 @@ method to specify which variable the view needs.
 Remember to only apply changes to the this.routes parameter.
 
 ```
-import Router from './Router/router.react.js';
+import Router from 'react-pico-router';
 
 class GrandRouter extends Router
 {
@@ -63,7 +63,7 @@ You can use the Router's this.getRoute() method with a route as parameter to mak
 
 
 ``` 
-import Router from './Router/router.react.js';
+import Router from 'react-pico-router';
 
 class GrandRouter extends Router
 {
