@@ -2,10 +2,17 @@
   "name": "react-pico-router",
   "version": "1.1.3",
   "description": "A supersmall router for react",
-  "main": "src/router.react.js",
+  "main": "dist/router.react.js",
   "dependencies": {
     "react": "^0.14.6",
     "react-dom": "^0.14.6"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.2"
   },
   "directories": {
     "example": "example"
