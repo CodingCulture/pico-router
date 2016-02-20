@@ -8,10 +8,11 @@ class Router
     /**
      * Binds the event that listens for URL changes
      */
-    constructor()
+    constructor(viewport)
     {
         this.routes = [];
         this.defineRoutes();
+        this.viewport = viewport;
     }
 
     /**
@@ -93,8 +94,8 @@ class Router
      */
     navigate()
     {
-        console.log('Navigate trigger');
         var target = this.getRoute(this.getRequestedRoute());
+        var targetDOM = this.getApplicationTarget();
 
         if (this.isDefaultRoute()) {
             target = this.getDefaultRoute();
@@ -106,15 +107,14 @@ class Router
 
         ReactDOM.render(
             target,
-            document.getElementById('application')
+            document.getElementById(this.getViewport())
         );
     }
 
     /**
      * Initiates the router
-     * @param {string} domId
      */
-    boot(domId)
+    boot()
     {
         var redirect = this.getDefaultRoute();
 
@@ -122,7 +122,7 @@ class Router
             redirect = this.getRoute(this.getRequestedRoute());
         }
 
-        ReactDOM.render(redirect, document.getElementById(domId));
+        ReactDOM.render(redirect, document.getElementById(this.getViewport()));
     }
 }
 

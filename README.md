@@ -8,7 +8,7 @@ that has a defineRoutes method and a getDefaultRoute method, inject it into your
 listener.
 
 ### Howto Use
-Step by step on how to implement pico-router into your project.
+Step by step on how to implement react-pico-router into your project.
 
 #### Extend the base Router
 
@@ -17,16 +17,14 @@ Extend the Base Router like you would do with any ES6 class.
 ```
 import Router from 'react-pico-router';
 
-class GrandRouter extends Router
+export default class GrandRouter extends Router
 {
     
 }
-
-export default GrandRouter;
 ```
 
 
-#### defineRoutes method
+#### Add a defineRoutes method
 
 The defineRoutes method will statically store an array in which all routes should be defined. The structure of this array
 is simple by design. For each item, the key holds the route you want to use and the value will have an instance of the
@@ -43,7 +41,7 @@ Remember to only apply changes to the this.routes parameter.
 ```
 import Router from 'react-pico-router';
 
-class GrandRouter extends Router
+export default class GrandRouter extends Router
 {
     defineRoutes()
     {
@@ -52,8 +50,6 @@ class GrandRouter extends Router
         this.routes['profile'] = (<UserProfile id={this.getQueryParam(userId)} />);
     }
 }
-
-export default GrandRouter;
 ```
 
 #### getDefaultRoute method
@@ -65,7 +61,7 @@ You can use the Router's this.getRoute() method with a route as parameter to mak
 ``` 
 import Router from 'react-pico-router';
 
-class GrandRouter extends Router
+export default class GrandRouter extends Router
 {
     defineRoutes()
     {
@@ -76,13 +72,10 @@ class GrandRouter extends Router
     
     getDefaultRoute()
     {
-        this.getRoute('index');
+        return this.getRoute('index');
     }
 }
-
-export default GrandRouter;
 ```
-
 
 #### Inject into your Main
 
