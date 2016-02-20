@@ -23,11 +23,12 @@ var Router = function () {
      * Binds the event that listens for URL changes
      */
 
-    function Router() {
+    function Router(viewport) {
         _classCallCheck(this, Router);
 
         this.routes = [];
         this.defineRoutes();
+        this.viewport = viewport;
     }
 
     /**
@@ -86,6 +87,17 @@ var Router = function () {
         }
 
         /**
+         * Returns the ID for the viewport
+         * @returns {*}
+         */
+
+    }, {
+        key: 'getViewport',
+        value: function getViewport() {
+            return this.viewport;
+        }
+
+        /**
          * Gets the query params
          * @param name
          */
@@ -125,8 +137,8 @@ var Router = function () {
     }, {
         key: 'navigate',
         value: function navigate() {
-            console.log('Navigate trigger');
             var target = this.getRoute(this.getRequestedRoute());
+            var targetDOM = this.getApplicationTarget();
 
             if (this.isDefaultRoute()) {
                 target = this.getDefaultRoute();
@@ -136,24 +148,23 @@ var Router = function () {
                 target = this.getDefaultRoute();
             }
 
-            _reactDom2.default.render(target, document.getElementById('application'));
+            _reactDom2.default.render(target, document.getElementById(this.getViewport()));
         }
 
         /**
          * Initiates the router
-         * @param {string} domId
          */
 
     }, {
         key: 'boot',
-        value: function boot(domId) {
+        value: function boot() {
             var redirect = this.getDefaultRoute();
 
             if (this.getRequestedRoute().length > 0) {
                 redirect = this.getRoute(this.getRequestedRoute());
             }
 
-            _reactDom2.default.render(redirect, document.getElementById(domId));
+            _reactDom2.default.render(redirect, document.getElementById(this.getViewport()));
         }
     }]);
 
