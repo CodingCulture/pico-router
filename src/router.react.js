@@ -75,16 +75,15 @@ class Router
      */
     getQueryParams()
     {
-        var result = [];
+        var raw = this.getQueryString().split('&');
+        var repo = [];
 
-        var rawQueries = this.getQueryString().split('&');
-
-        for (let queryblob in rawQueries) {
-            var essence = queryblob.split('=', 2);
-            result[essence[0]] = (essence[1] !== undefined) ? essence[1] : true;
+        for (var i = 0; i < raw.length; i++) {
+            var query = raw[i].split('=');
+            repo[query[0]] = query[1];
         }
 
-        return result;
+        return repo;
     }
 
     /**
