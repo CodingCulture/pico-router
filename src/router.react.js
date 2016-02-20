@@ -61,6 +61,15 @@ class Router
     }
 
     /**
+     * Returns the ID for the viewport
+     * @returns {*}
+     */
+    getViewport()
+    {
+        return this.viewport;
+    }
+
+    /**
      * Gets the query params
      * @param name
      */
