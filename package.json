@@ -1,6 +1,6 @@
 {
   "name": "react-pico-router",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "A supersmall router for react",
   "main": "dist/router.react.js",
   "dependencies": {
