@@ -104,7 +104,6 @@ class Router
     navigate()
     {
         var target = this.getRoute(this.getRequestedRoute());
-        var targetDOM = this.getApplicationTarget();
 
         if (this.isDefaultRoute()) {
             target = this.getDefaultRoute();
