@@ -17,6 +17,7 @@ class Router
 
     /**
      * Defines the default route
+     *
      * @returns {*}
      */
     getDefaultRoute()
@@ -34,7 +35,8 @@ class Router
 
     /**
      * Returns the route for a given url
-     * @param name
+     *
+     * @param {string} name
      * @returns {*}
      */
     getRoute(name)
@@ -44,6 +46,7 @@ class Router
 
     /**
      * Returns the url the user has requested
+     *
      * @returns {string}
      */
     getRequestedRoute()
@@ -53,6 +56,7 @@ class Router
 
     /**
      * Returns if the user wants to access the default route
+     *
      * @returns {boolean}
      */
     isDefaultRoute()
@@ -62,6 +66,7 @@ class Router
 
     /**
      * Returns the ID for the viewport
+     *
      * @returns {*}
      */
     getViewport()
@@ -71,7 +76,8 @@ class Router
 
     /**
      * Gets the query params
-     * @param name
+     *
+     * @returns {Array}
      */
     getQueryParams()
     {
@@ -84,6 +90,23 @@ class Router
         }
 
         return repo;
+    }
+
+    /**
+     * Returns a certain query param
+     *
+     * @param param
+     */
+    getQueryParam(param)
+    {
+        var params = this.getQueryParams();
+        var result = null;
+
+        if (params[param] != undefined) {
+            result = params[param];
+        }
+
+        return result;
     }
 
     /**
