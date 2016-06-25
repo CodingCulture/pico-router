@@ -118,6 +118,7 @@ var Router = function () {
 
         /**
          * Returns the query string after #
+         *
          * @returns {string}
          */
 
@@ -130,6 +131,7 @@ var Router = function () {
 
         /**
          * Navigates to the requested url
+         *
          * @returns {*}
          */
 
@@ -160,6 +162,10 @@ var Router = function () {
 
             if (this.getRequestedRoute().length > 0) {
                 redirect = this.getRoute(this.getRequestedRoute());
+            }
+
+            if (redirect == undefined) {
+                redirect = this.getDefaultRoute();
             }
 
             _reactDom2.default.render(redirect, document.getElementById(this.getViewport()));
