@@ -33,6 +33,7 @@ var Router = function () {
 
     /**
      * Defines the default route
+     *
      * @returns {*}
      */
 
@@ -54,7 +55,8 @@ var Router = function () {
 
         /**
          * Returns the route for a given url
-         * @param name
+         *
+         * @param {string} name
          * @returns {*}
          */
 
@@ -66,6 +68,7 @@ var Router = function () {
 
         /**
          * Returns the url the user has requested
+         *
          * @returns {string}
          */
 
@@ -77,6 +80,7 @@ var Router = function () {
 
         /**
          * Returns if the user wants to access the default route
+         *
          * @returns {boolean}
          */
 
@@ -88,6 +92,7 @@ var Router = function () {
 
         /**
          * Returns the ID for the viewport
+         *
          * @returns {*}
          */
 
@@ -99,7 +104,8 @@ var Router = function () {
 
         /**
          * Gets the query params
-         * @param name
+         *
+         * @returns {Array}
          */
 
     }, {
@@ -114,6 +120,25 @@ var Router = function () {
             }
 
             return repo;
+        }
+
+        /**
+         * Returns a certain query param
+         *
+         * @param param
+         */
+
+    }, {
+        key: 'getQueryParam',
+        value: function getQueryParam(param) {
+            var params = this.getQueryParams();
+            var result = null;
+
+            if (params[param] != undefined) {
+                result = params[param];
+            }
+
+            return result;
         }
 
         /**
