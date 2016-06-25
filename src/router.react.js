@@ -88,6 +88,7 @@ class Router
 
     /**
      * Returns the query string after #
+     *
      * @returns {string}
      */
     getQueryString()
@@ -98,6 +99,7 @@ class Router
 
     /**
      * Navigates to the requested url
+     *
      * @returns {*}
      */
     navigate()
@@ -127,6 +129,10 @@ class Router
 
         if (this.getRequestedRoute().length > 0) {
             redirect = this.getRoute(this.getRequestedRoute());
+        }
+
+        if (redirect == undefined) {
+            redirect = this.getDefaultRoute();
         }
 
         ReactDOM.render(redirect, document.getElementById(this.getViewport()));
