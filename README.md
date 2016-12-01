@@ -1,3 +1,5 @@
+[This project is no longer maintained]
+
 ## μRouter
 
 μRouter or pico-router is a very lightweight React router with zero fat. It was created to do routing, and only do
